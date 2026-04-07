@@ -5,7 +5,7 @@ def performance(fn):
         setattr(performance,"counter",0)    
         setattr(performance,"total_time",0)    
         setattr(performance,"total_mem",0)
-    def _wrapper(*args,**kwargs):
+    def wrapper(*args,**kwargs):
         tracemalloc.start()
         startT = time.perf_counter()
         result = fn(*args,**kwargs)
@@ -17,6 +17,6 @@ def performance(fn):
         performance.counter += 1
         performance.total_mem += high
         return result
-    return _wrapper()
+    return wrapper()
 
         
