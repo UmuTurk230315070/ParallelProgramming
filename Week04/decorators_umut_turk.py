@@ -8,7 +8,7 @@ def performance(fn):
     def _wrapper(*args,**kwargs):
         tracemalloc.start()
         startT = time.perf_counter()
-        result = fn()
+        result = fn(*args,**kwargs)
         endT = time.perf_counter()
         timeT = endT - startT
         n, high = tracemalloc.get_traced_memory()
