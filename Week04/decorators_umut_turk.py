@@ -17,6 +17,6 @@ def performance(fn):
         performance.counter += 1
         performance.total_mem += high
         return result
-    return wrapper()
+    return wrapper
 
         
